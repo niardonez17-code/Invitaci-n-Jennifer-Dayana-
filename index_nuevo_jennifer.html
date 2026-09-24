@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis 15 · Jennifer Dayana Ordoñes</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,'Times New Roman',serif;color:#40506b;background:linear-gradient(180deg,#eaf5ff 0%,#f8fbff 45%,#eef6ff 100%);overflow-x:hidden}
+section{padding:70px 20px;text-align:center}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 25%,#fff 0,#edf7ff 38%,#cfe7ff 100%)}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;filter:blur(1px);opacity:.55;border:1px solid rgba(255,255,255,.9)}
+.hero:before{width:500px;height:500px;box-shadow:0 0 80px #fff;top:-180px;left:-150px}
+.hero:after{width:400px;height:400px;box-shadow:0 0 70px #fff;bottom:-180px;right:-120px}
+.sparkles{position:absolute;inset:0;background-image:radial-gradient(#fff 1.5px,transparent 1.5px);background-size:75px 75px;opacity:.7}
+.card{position:relative;z-index:2;max-width:760px;padding:35px 25px}
+.monogram{width:88px;height:88px;border:2px solid rgba(83,112,150,.45);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 25px;font-size:42px;font-style:italic;color:#56739c;background:rgba(255,255,255,.5)}
+.kicker{letter-spacing:5px;text-transform:uppercase;font-size:12px;margin-bottom:18px;color:#304765;font-weight:600}
+.hero-text{max-width:650px;margin:10px auto;line-height:1.7;font-size:17px;color:#304765;font-weight:600;text-shadow:0 1px 2px rgba(255,255,255,.9)}
+h1{font-size:clamp(48px,11vw,100px);font-weight:400;line-height:.9;color:#49698f}
+.name{font-size:clamp(25px,6vw,48px);letter-spacing:5px;margin:18px 0 6px;color:#405f85}
+.surname{font-size:clamp(15px,3vw,22px);letter-spacing:4px;color:#49698f}
+.divider{margin:25px auto;width:120px;border-top:1px solid #8aa6c5}
+.date{display:block;font-size:19px;letter-spacing:3px;color:#405f85;text-decoration:none;margin:6px auto}
+.date-link{cursor:pointer;transition:.25s}.date-link:hover{color:#294c78;text-decoration:underline}
+.date-hint{font-size:12px;letter-spacing:1px;color:#526d8e;margin-top:8px}
+.btn{display:inline-block;margin-top:28px;padding:13px 28px;border:1px solid #7895b5;border-radius:30px;text-decoration:none;color:#49698f;background:rgba(255,255,255,.75);cursor:pointer;font-family:inherit;font-size:16px;transition:.25s}
+.btn:hover{background:#fff;transform:translateY(-2px)}
+.enter-btn{font-weight:600;padding:15px 32px;color:#304765}
+h2{font-size:35px;font-weight:400;color:#49698f;margin-bottom:18px}
+p{max-width:650px;margin:10px auto;line-height:1.7;font-size:17px}
+.invite{background:rgba(255,255,255,.55)}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;max-width:800px;margin:35px auto}
+.box{padding:25px;border:1px solid #c4d5e7;background:rgba(255,255,255,.7);border-radius:18px}
+.box strong{display:block;margin-bottom:8px;color:#49698f}
+.date-box{display:block;color:#40506b;text-decoration:none;transition:.25s}.date-box:hover{background:#fff;transform:translateY(-2px)}
+.calendar-text{display:block;margin-top:9px;font-size:12px;color:#7891ad}
+.blue-reserved{margin-top:5px}.blue-dots{display:flex;justify-content:center;gap:8px;margin-top:14px}.blue-dots i{display:block;width:18px;height:18px;border-radius:50%;border:1px solid rgba(70,100,135,.25)}
+.blue-dots i:nth-child(1){background:#d9ecff}.blue-dots i:nth-child(2){background:#b8dcff}.blue-dots i:nth-child(3){background:#8fc5f5}.blue-dots i:nth-child(4){background:#639ed3}.blue-dots i:nth-child(5){background:#3f76ad}
+.photos{display:grid;grid-template-columns:repeat(2,minmax(160px,1fr));gap:15px;max-width:800px;margin:35px auto}
+.photo{aspect-ratio:3/4;overflow:hidden;border-radius:18px;border:2px solid #a9bfd7;background:linear-gradient(145deg,#f9fcff,#dcecff)}
+.photo img{width:100%;height:100%;display:block;object-fit:cover}.photo-bebe img{object-position:center 23%}
+.countdown{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}.time{min-width:85px;padding:18px 10px;border-radius:15px;background:white;border:1px solid #c9d9e8}.time b{display:block;font-size:28px;color:#49698f}.time span{font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.location{background:linear-gradient(180deg,#eef7ff,#dbeeff)}.location-link{display:inline-block;color:#49698f;text-decoration:none;font-size:19px;margin-top:5px}
+.rsvp{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}.hidden{display:none}footer{padding:40px 20px;text-align:center;font-size:14px;color:#7088a2}.small{font-size:14px;color:#7891ad}
+@media(max-width:600px){.photos{grid-template-columns:1fr 1fr}.name{letter-spacing:3px}.surname{letter-spacing:2px}.date{font-size:16px;letter-spacing:2px}}
+
+.detail-link{display:block;color:inherit;text-decoration:none;transition:.25s;cursor:pointer}
+.detail-link:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(70,110,125,.12)}
+.action-hint{display:block;margin-top:10px;font-size:9px;letter-spacing:1px;color:#78909b;text-transform:uppercase}
+.dress-code{max-width:760px;margin:8px auto 0;padding:25px 20px;background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.9)}
+.dress-title{font-family:"Cormorant Garamond";font-size:28px;color:#617f8e;margin-bottom:5px}
+.dress-code p{font-size:12px;line-height:1.7;margin:0 auto;color:#617783}
+.blue-dots{display:flex;justify-content:center;gap:9px;margin-top:14px}
+.blue-dots i{width:20px;height:20px;border-radius:50%;display:block;border:1px solid rgba(70,100,120,.2)}
+.blue-dots i:nth-child(1){background:#d9ecff}.blue-dots i:nth-child(2){background:#b8dcff}.blue-dots i:nth-child(3){background:#8fc5f5}.blue-dots i:nth-child(4){background:#639ed3}.blue-dots i:nth-child(5){background:#3f76ad}
+.buttons .btn span{font-size:9px;letter-spacing:1.5px}
+
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="stars">
+    <i class="star" style="left:12%;top:20%">✦</i>
+    <i class="star" style="left:82%;top:18%;animation-delay:.8s">✧</i>
+    <i class="star" style="left:20%;top:73%;animation-delay:1.2s">✦</i>
+    <i class="star" style="left:75%;top:67%;animation-delay:1.8s">✧</i>
+    <i class="star" style="left:55%;top:12%;animation-delay:.4s">✦</i>
+  </div>
+  <div class="hero-content">
+    <div class="seal"><span>J</span></div>
+    <div class="small" style="color:white">Mis quince años</div>
+    <h1>Jennifer Dayana</h1>
+    <div class="subtitle">ORDOÑEZ RINCON</div>
+    <div class="ornament">✦　✧　✦</div>
+    <p class="intro">“Hay momentos en la vida que se vuelven inolvidables cuando los compartimos con quienes amamos.”</p>
+    <button class="btn enter-btn" onclick="abrirInvitacion()">✦ Entrar a la invitación ✦</button>
+  </div>
+</section>
+<div id="contenidoInvitacion" class="hidden">
+<section id="invitacion" class="invite">
+<h2>Una celebración especial</h2>
+<p>Queremos compartir contigo una noche llena de momentos especiales, alegría y mucho cariño.</p>
+<div class="info">
+<a class="box date-box" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Los%2015%20de%20Jennifer%20Dayana%20Ordo%C3%B1es&dates=20261025T190000/20261025T230000&details=Celebraci%C3%B3n%20de%20los%2015%20de%20Jennifer%20Dayana%20Ordo%C3%B1es&location=Cra%2027%20%2330-43%2C%20Salesianos" target="_blank" rel="noopener"><strong>Fecha</strong>Domingo 25 de octubre de 2026<span class="calendar-text">♡ Toca aquí para agregar la fecha al calendario</span></a>
+<div class="box"><strong>Hora</strong>7:00 p. m.</div>
+<div class="box"><strong>Vestuario</strong><div class="blue-reserved">El color azul, en todos sus tonos, está reservado para la quinceañera.</div><div class="blue-dots"><i></i><i></i><i></i><i></i><i></i></div></div>
+</div>
+</section>
+<section>
+<h2>Mis momentos</h2><p class="small">Un pequeño recuerdo de cada etapa.</p>
+<div class="photos">
+<div class="photo photo-bebe"><img src="bebe.jpg" alt="Jennifer de bebé" onerror="this.onerror=null;this.src='bebe.png';"></div>
+<div class="photo"><img src="mama.jpg" alt="Jennifer y mamá" onerror="this.onerror=null;this.src='mama.png';"></div>
+<div class="photo"><img src="papa.jpg" alt="Jennifer y papá" onerror="this.onerror=null;this.src='papa.png';"></div>
+<div class="photo"><img src="vestido.jpg" alt="Vestido de quinceañera" onerror="this.onerror=null;this.src='vestido.png';"></div>
+</div>
+</section>
+<section>
+<h2>Faltan...</h2>
+<div class="countdown"><div class="time"><b id="days">0</b><span>Días</span></div><div class="time"><b id="hours">0</b><span>Horas</span></div><div class="time"><b id="mins">0</b><span>Minutos</span></div><div class="time"><b id="secs">0</b><span>Segundos</span></div></div>
+</section>
+<section class="location">
+<h2>Nos encontramos en...</h2>
+<a class="location-link" href="https://www.google.com/maps/search/?api=1&query=Cra+27+%2330-43+Salesianos" target="_blank" rel="noopener">Cra 27 #30-43, Salesianos</a><br>
+<a class="btn" href="https://www.google.com/maps/search/?api=1&query=Cra+27+%2330-43+Salesianos" target="_blank" rel="noopener">📍 Ver ubicación y cómo llegar</a>
+</section>
+<section>
+<h2>Confirma tu asistencia</h2><p>Será un honor contar contigo en este día tan especial.</p>
+<div class="rsvp">
+<a class="btn" href="https://wa.me/573174318966?text=Hola%20Luz%20Argeniz%2C%20quiero%20confirmar%20mi%20asistencia%20a%20los%2015%20de%20Jennifer%20Dayana%20Ordo%C3%B1es.%20%C2%BFMe%20puedes%20indicar%20cu%C3%A1ntos%20cupos%20tengo%3F" target="_blank" rel="noopener">WhatsApp · Luz Argeniz</a>
+<a class="btn" href="https://wa.me/573178544568?text=Hola%20Jos%C3%A9%20Aristides%2C%20quiero%20confirmar%20mi%20asistencia%20a%20los%2015%20de%20Jennifer%20Dayana%20Ordo%C3%B1es.%20%C2%BFMe%20puedes%20indicar%20cu%C3%A1ntos%20cupos%20tengo%3F" target="_blank" rel="noopener">WhatsApp · José Aristides</a>
+</div>
+</section>
+<footer>Con cariño, Jennifer Dayana ♡</footer>
+</div>
+<script>
+function abrirInvitacion(){
+ const contenido=document.getElementById('contenidoInvitacion');
+ contenido.classList.remove('hidden');
+ setTimeout(()=>document.getElementById('invitacion').scrollIntoView({behavior:'smooth'}),100);
+}
+const target=new Date('2026-10-25T19:00:00-05:00').getTime();
+function update(){
+ const diff=Math.max(0,target-Date.now());
+ document.getElementById('days').textContent=Math.floor(diff/86400000);
+ document.getElementById('hours').textContent=Math.floor(diff%86400000/3600000);
+ document.getElementById('mins').textContent=Math.floor(diff%3600000/60000);
+ document.getElementById('secs').textContent=Math.floor(diff%60000/1000);
+}
+update();setInterval(update,1000);
+</script>
+</body>
+</html>
